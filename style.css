@@ -1497,3 +1497,47 @@ label,
 .clothing-option {
     cursor: url("images/cursor.png") 16 16, auto;
 }
+/* =========================
+   GRAPHIC — UNDER DEVELOPMENT
+========================= */
+
+.graphic-development-body {
+    margin: 0;
+    min-height: 100vh;
+    background: #000000;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.graphic-development-nav {
+    position: fixed;
+    top: 14px;
+    left: 22px;
+    right: 22px;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.graphic-development-nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.graphic-development-nav a:hover {
+    text-decoration: underline;
+}
+
+.graphic-development-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 14px;
+    font-weight: 700;
+}

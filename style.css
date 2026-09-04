@@ -1,0 +1,1499 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #000000;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   HOMEPAGE
+========================= */
+
+.page {
+    min-height: 100vh;
+    padding: 22px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.intro {
+    width: 100%;
+    padding-bottom: 16vh;
+}
+
+h1 {
+    margin: 0 0 48px 0;
+    font-size: 52px;
+    line-height: 0.9;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+.columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+}
+
+.column h2 {
+    margin: 0 0 24px 0;
+    font-size: 21px;
+    line-height: 1;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.column p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+h2 a {
+    color: white;
+}
+
+
+/* =========================
+   HOMEPAGE WATCHING FACE
+========================= */
+
+.face-watcher {
+    position: fixed;
+
+    left: 50%;
+    top: 35%;
+
+    width: min(24vw, 330px);
+    height: auto;
+
+    transform: translate(-50%, -50%);
+
+    perspective: 900px;
+
+    /* Allows the face to be clicked */
+    pointer-events: auto;
+    cursor: pointer;
+
+    user-select: none;
+
+    z-index: 2;
+}
+
+.face-head {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+
+    transform-style: preserve-3d;
+    transform-origin: center center;
+
+    will-change: transform;
+}
+
+.face-base {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    pointer-events: none;
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/*
+The eye masks reuse the exact same image.
+Only the image INSIDE each mask moves,
+which makes the eyes appear to track
+the cursor without changing the face.
+*/
+
+.face-eye-mask {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.face-eye-mask img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scale(1.02);
+
+    will-change: transform;
+
+    pointer-events: none;
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+.face-eye-mask-left {
+    clip-path: ellipse(
+        10.5% 8.5%
+        at 34% 35.5%
+    );
+}
+
+.face-eye-mask-right {
+    clip-path: ellipse(
+        10.5% 8.5%
+        at 66% 35.5%
+    );
+}
+
+
+/*
+Keep the portfolio text above the face.
+*/
+
+.intro,
+.info-link {
+    position: relative;
+    z-index: 10;
+}
+
+
+/* =========================
+   HOMEPAGE FACE MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .face-watcher {
+        top: 34%;
+
+        width: min(
+            58vw,
+            300px
+        );
+    }
+
+}
+
+
+/* =========================
+   APPAREL PAGE
+========================= */
+
+.apparel-page {
+    min-height: 100vh;
+    padding: 30px;
+    overflow: hidden;
+}
+
+/* =========================
+   APPAREL NAV
+========================= */
+
+.apparel-nav {
+    position: fixed;
+
+    top: 14px;
+    left: 30px;
+    right: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    z-index: 1000;
+}
+
+.apparel-nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.apparel-nav a:visited {
+    color: #ffffff;
+}
+
+.apparel-nav a:hover {
+    text-decoration: underline;
+}
+
+.apparel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+
+    margin-top: 80px;
+
+    height: calc(100vh - 110px);
+
+    align-items: start;
+}
+
+
+/* =========================
+   MANNEQUIN AREA
+========================= */
+
+.main-look {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    height: 100%;
+
+    position: relative;
+
+    overflow: visible;
+}
+
+.mannequin-stack {
+    position: relative;
+
+    width: auto;
+    height: 650px;
+
+    margin: 0 auto;
+
+    overflow: visible;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   BASE MANNEQUIN
+========================= */
+
+.base-model {
+    height: 100%;
+    width: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    border: none;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================
+   NORMAL CLOTHING LAYERS
+========================= */
+
+.clothing-layer {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    border: none;
+}
+
+
+/* SHOES = LOWEST CLOTHING LAYER */
+
+#selected-shoes {
+    z-index: 10;
+}
+
+
+/* BOTTOMS = ABOVE SHOES */
+
+#selected-bottom {
+    z-index: 20;
+}
+
+
+/* TOPS = ABOVE BOTTOMS */
+
+#selected-top {
+    z-index: 30;
+}
+
+
+/* HIDE EMPTY CLOTHING */
+
+.clothing-layer[src=""] {
+    display: none;
+}
+
+
+/* =========================
+   ACCESSORY LAYER
+========================= */
+
+/*
+   Accessory PNG can be taller than
+   the mannequin canvas and extend
+   above the mannequin.
+*/
+
+.accessory-layer {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    border: none;
+
+    z-index: 40;
+}
+
+
+/* HIDE EMPTY ACCESSORY */
+
+.accessory-layer[src=""] {
+    display: none;
+}
+
+
+/* =========================
+   SHOP PANEL
+========================= */
+
+.shop-panel {
+    height: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding-right: 10px;
+
+    scrollbar-width: none;
+}
+
+.shop-panel::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================
+   CATEGORY MENU
+========================= */
+
+.shop-panel input {
+    display: none;
+}
+
+.category-screen {
+    display: none;
+}
+
+
+/* MAIN MENU */
+
+#menu:checked ~ .menu-screen {
+    display: flex;
+}
+
+
+/* TOPS */
+
+#tops:checked ~ .tops-screen {
+    display: block;
+}
+
+
+/* BOTTOMS */
+
+#bottoms:checked ~ .bottoms-screen {
+    display: block;
+}
+
+
+/* ACCESSORIES */
+
+#accessories:checked ~ .accessories-screen {
+    display: block;
+}
+
+
+/* SHOES */
+
+#shoes:checked ~ .shoes-screen {
+    display: block;
+}
+
+
+/* =========================
+   MAIN CATEGORY SCREEN
+========================= */
+
+.menu-screen {
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu-screen h2 {
+    text-decoration: none;
+    margin-bottom: 30px;
+}
+
+.menu-screen label {
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu-screen label:hover {
+    text-decoration: underline;
+}
+
+.apparel-note {
+    max-width: 300px;
+
+    margin: 35px 0 0 0;
+
+    font-size: 10px;
+    line-height: 1.35;
+    font-weight: 400;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   CATEGORY CONTENT
+========================= */
+
+.category-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    margin-bottom: 30px;
+}
+
+.back-menu {
+    margin: 0;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.back-menu:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   CLOTHING THUMBNAILS
+========================= */
+
+.piece-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    padding-bottom: 80px;
+}
+
+.piece-grid img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+    height: auto;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* CLICKABLE ITEMS */
+
+.clothing-option {
+    cursor: pointer;
+}
+
+.clothing-option:hover {
+    opacity: 0.7;
+}
+
+.clothing-reset {
+    appearance: none;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+.clothing-reset:hover {
+    opacity: 0.7;
+}
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .apparel-page {
+        overflow: visible;
+    }
+
+    .apparel-nav {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+    }
+
+    .intro {
+        padding-bottom: 80px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .columns {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .apparel-grid {
+        grid-template-columns: 1fr;
+
+        height: auto;
+
+        margin-top: 40px;
+    }
+
+    .main-look {
+        height: auto;
+    }
+
+    .mannequin-stack {
+        height: 550px;
+    }
+
+    .shop-panel {
+        height: auto;
+
+        overflow: visible;
+    }
+
+}/* INFO LINK */
+
+.info-link {
+    position: fixed;
+    top: 22px;
+    left: 22px;
+
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+
+    z-index: 1000;
+}
+
+.info-link:visited {
+    color: white;
+}
+
+.info-link:hover {
+    text-decoration: underline;
+}/* =========================
+   INFO PAGE
+========================= */
+
+.info-body {
+    margin: 0;
+    background: #000000;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* PAGE */
+
+.info-page {
+    min-height: 100vh;
+    padding: 14px;
+}
+
+
+/* TOP NAV */
+
+.info-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.info-nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.info-nav a:visited {
+    color: #ffffff;
+}
+
+.info-nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* ID CARD */
+
+.id-card {
+    display: flex;
+    justify-content: flex-start;
+
+    margin-top: 40px;
+    margin-bottom: 35px;
+}
+
+.id-card img {
+    width: 320px;
+    height: auto;
+    display: block;
+}
+
+
+/* ABOUT + CONTACT */
+
+.info-details {
+    display: grid;
+    grid-template-columns: 320px 320px;
+    gap: 80px;
+
+    width: 100%;
+    margin: 0;
+    padding-bottom: 50px;
+}
+
+
+/* HEADINGS */
+
+.info-section h2 {
+    margin: 0 0 14px 0;
+
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 700;
+
+    text-decoration: underline;
+}
+
+
+/* TEXT */
+
+.info-section p {
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .info-page {
+        padding: 14px;
+    }
+
+    .id-card {
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+
+    .id-card img {
+        width: 280px;
+        max-width: 90vw;
+    }
+
+    .info-details {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+}/* =========================
+   GRAPHIC PAGE
+========================= */
+
+.graphic-body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.graphic-page {
+    height: 100vh;
+    padding: 14px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* TOP NAV */
+
+.graphic-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+.graphic-nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.graphic-nav a:visited {
+    color: #fff;
+}
+
+.graphic-nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* PREVIEW AREA */
+
+.graphic-preview-wrap {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    min-height: 0;
+}
+
+.graphic-preview {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.graphic-preview::-webkit-scrollbar {
+    display: none;
+}
+
+.graphic-preview.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* IMAGE ROW */
+
+.graphic-images {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    width: max-content;
+
+    padding: 20px 0;
+}
+
+.graphic-images img {
+    height: 48vh;
+    width: auto;
+
+    max-width: 70vw;
+
+    object-fit: contain;
+
+    display: block;
+
+    flex-shrink: 0;
+}
+
+
+/* CUSTOM SCROLLBAR */
+
+.graphic-scrollbar {
+    margin-top: 10px;
+    padding: 0 2px;
+}
+
+.graphic-scroll-track {
+    position: relative;
+
+    width: 100%;
+    height: 2px;
+
+    background: #333;
+}
+
+.graphic-scroll-thumb {
+    position: absolute;
+
+    top: -3px;
+    left: 0;
+
+    height: 8px;
+    width: 80px;
+
+    background: #fff;
+
+    cursor: grab;
+
+    transition: width 0.2s ease;
+}
+
+.graphic-scroll-thumb:active {
+    cursor: grabbing;
+}
+
+
+/* PROJECT MENU */
+
+.project-menu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 24px;
+
+    padding-top: 18px;
+
+    flex-shrink: 0;
+}
+
+.project-item {
+    background: none;
+    border: none;
+
+    color: #fff;
+
+    text-align: left;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.project-item span {
+    display: block;
+}
+
+.project-item span:first-child {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.project-item span:last-child {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.project-item:hover span:last-child,
+.project-item.active span:last-child {
+    text-decoration: underline;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .graphic-body {
+        overflow: auto;
+    }
+
+    .graphic-page {
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .graphic-preview-wrap {
+        min-height: 65vh;
+    }
+
+    .graphic-images img {
+        height: 45vh;
+        max-width: 85vw;
+    }
+
+    .project-menu {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+}/* =========================
+   PROJECT THUMBNAILS
+========================= */
+
+.project-menu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+
+    width: 100%;
+
+    /* smaller gap between scrollbar and thumbnails */
+    padding-top: 25px;
+
+    flex-shrink: 0;
+}
+
+
+/* PROJECT */
+
+.project-item {
+    background: none;
+    border: none;
+
+    color: #ffffff;
+
+    padding: 0;
+    margin: 0;
+
+    text-align: left;
+    cursor: pointer;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* THUMBNAIL */
+
+.project-thumbnail {
+    width: 100%;
+
+    /* makes image area reach upward toward scrollbar */
+    height: 230px;
+
+    object-fit: contain;
+    object-position: left bottom;
+
+    display: block;
+
+    margin: 0 0 10px 0;
+}
+
+
+/* EMPTY PROJECTS */
+
+.project-placeholder {
+    width: 100%;
+    height: 230px;
+
+    margin: 0 0 10px 0;
+}
+
+
+/* PROJECT TEXT */
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* PROJECT NUMBER */
+
+.project-info span:first-child {
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 400;
+
+    margin-bottom: 6px;
+}
+
+
+/* PROJECT NAME */
+
+.project-info span:last-child {
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 700;
+}
+
+
+/* HOVER */
+
+.project-item:hover .project-info span:last-child {
+    text-decoration: underline;
+}
+
+
+/* ACTIVE */
+
+.project-item.active .project-info span:last-child {
+    text-decoration: underline;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .project-menu {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        padding-top: 20px;
+    }
+
+    .project-thumbnail,
+    .project-placeholder {
+        height: 160px;
+    }
+
+}.graphic-images video {
+    height: 48vh;
+    width: auto;
+
+    max-width: 70vw;
+
+    object-fit: contain;
+
+    display: block;
+
+    flex-shrink: 0;
+}/* =========================
+   COVERS PAGE
+========================= */
+
+.covers-body {
+    margin: 0;
+
+    background: #000000;
+    color: #ffffff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow: hidden;
+}
+
+
+.covers-page {
+    width: 100%;
+    height: 100vh;
+
+    padding: 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   NAV
+========================= */
+
+.covers-nav {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    position: relative;
+
+    z-index: 1000;
+}
+
+
+.covers-nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+.covers-nav a:visited {
+    color: #ffffff;
+}
+
+
+.covers-nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   STAGE
+========================= */
+
+.covers-stage {
+    position: relative;
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    perspective: 1100px;
+
+    perspective-origin:
+        center center;
+
+    transform-style:
+        preserve-3d;
+}
+
+
+/* =========================
+   STACK
+========================= */
+
+.covers-stack {
+    position: relative;
+
+    width: min(
+        22vw,
+        330px
+    );
+
+    aspect-ratio: 1 / 1;
+
+    transform:
+        translateY(10px);
+
+    transform-style:
+        preserve-3d;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.cover-card {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    transform-origin:
+        center bottom;
+
+    transform-style:
+        preserve-3d;
+
+    backface-visibility:
+        hidden;
+
+    will-change:
+        transform,
+        opacity;
+
+    transition:
+        transform
+        0.58s
+        cubic-bezier(
+            0.22,
+            0.61,
+            0.36,
+            1
+        ),
+
+        opacity
+        0.25s
+        ease;
+}
+
+
+/* =========================
+   ARTWORK
+========================= */
+
+.cover-card img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    display: block;
+
+    object-fit: cover;
+
+    height: auto;
+
+    border-radius: 2px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(
+            0,
+            0,
+            0,
+            0.45
+        );
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* =========================
+   ARROW CONTROLS
+========================= */
+
+.covers-controls {
+    position: absolute;
+
+    /*
+    Stack is max 330px wide,
+    so this puts the controls
+    just to its right.
+    */
+
+    left: calc(
+        50% +
+        min(11vw, 165px) +
+        34px
+    );
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    z-index: 2000;
+}
+
+
+.cover-arrow {
+    appearance: none;
+
+    border: 0;
+
+    padding: 2px 6px;
+
+    margin: 0;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 24px;
+    line-height: 1;
+
+    font-weight: 400;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+}
+
+
+.cover-arrow:hover:not(:disabled) {
+    transform:
+        scale(1.15);
+}
+
+
+.cover-arrow:disabled {
+    opacity: 0.2;
+
+    cursor: default;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.covers-footer {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    padding-top: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    position: relative;
+
+    z-index: 1000;
+}
+
+
+#coversTitle {
+    text-align: right;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .covers-page {
+        padding: 12px;
+    }
+
+
+    .covers-stack {
+        width: 62vw;
+    }
+
+
+    .covers-stage {
+        perspective: 850px;
+    }
+
+
+    .covers-controls {
+        left: auto;
+        right: 3px;
+
+        gap: 10px;
+    }
+
+
+    .cover-arrow {
+        font-size: 25px;
+    }
+
+
+    .covers-footer {
+        font-size: 11px;
+    }
+
+}/* =========================
+   CUSTOM CURSOR
+========================= */
+
+html,
+body,
+a,
+button,
+label,
+.face-watcher,
+.clothing-option {
+    cursor: url("images/cursor.png") 16 16, auto;
+}

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apparel Design</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="apparel-page">
+
+        <div class="apparel-nav">
+            <span>01 APPAREL</span>
+            <a href="index.html">BACK</a>
+        </div>
+
+        <div class="apparel-grid">
+
+
+            <!-- =========================
+                 LEFT SIDE: MANNEQUIN
+            ========================== -->
+
+            <div class="main-look">
+
+                <div class="mannequin-stack">
+
+                    <!-- BASE MANNEQUIN -->
+
+                    <img
+                        class="base-model"
+                        src="images/mannequin.png"
+                        alt="Mannequin"
+                    >
+
+
+                    <!-- SHOES
+                         LOWEST CLOTHING LAYER -->
+
+                    <img
+                        id="selected-shoes"
+                        class="clothing-layer"
+                        src=""
+                        alt=""
+                    >
+
+
+                    <!-- BOTTOMS
+                         ABOVE SHOES -->
+
+                    <img
+                        id="selected-bottom"
+                        class="clothing-layer"
+                        src=""
+                        alt=""
+                    >
+
+
+                    <!-- TOPS
+                         ABOVE BOTTOMS -->
+
+                    <img
+                        id="selected-top"
+                        class="clothing-layer"
+                        src=""
+                        alt=""
+                    >
+
+
+                    <!-- ACCESSORIES
+                         HIGHEST LAYER -->
+
+                    <img
+                        id="selected-accessory"
+                        class="accessory-layer"
+                        src=""
+                        alt=""
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 RIGHT SIDE: SHOP MENU
+            ========================== -->
+
+            <div class="shop-panel">
+
+
+                <!-- CATEGORY SWITCHES -->
+
+                <input type="radio" name="category" id="menu" checked>
+                <input type="radio" name="category" id="tops">
+                <input type="radio" name="category" id="bottoms">
+                <input type="radio" name="category" id="accessories">
+                <input type="radio" name="category" id="shoes">
+
+
+
+                <!-- =========================
+                     MAIN MENU
+                ========================== -->
+
+                <div class="category-screen menu-screen">
+
+                    <h2>SELECT CATEGORY</h2>
+
+                    <label for="tops">TOPS</label>
+                    <label for="bottoms">BOTTOMS</label>
+                    <label for="accessories">ACCESSORIES</label>
+                    <label for="shoes">SHOES</label>
+
+                    <p class="apparel-note">
+                        ALL CLOTHING SHOWN WAS DESIGNED BY ME FOR COMMISSIONED PROJECTS.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =========================
+                     TOPS
+                ========================== -->
+
+                <div class="category-screen tops-screen">
+
+                    <div class="category-actions">
+
+                        <label class="back-menu" for="menu">← CATEGORIES</label>
+
+                        <button class="clothing-reset" type="button" data-category="top">NONE</button>
+
+                    </div>
+
+                    <h2>TOPS</h2>
+
+                    <div class="piece-grid">
+
+                        <img
+                            src="images/thumbnails/top1.png"
+                            alt="Top 1"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top1.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top2.png"
+                            alt="Top 2"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top2.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top3.png"
+                            alt="Top 3"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top3.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top4.png"
+                            alt="Top 4"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top4.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top5.png"
+                            alt="Top 5"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top5.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top6.png"
+                            alt="Top 6"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top6.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top7.png"
+                            alt="Top 7"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top7.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top8.png"
+                            alt="Top 8"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top8.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top9.png"
+                            alt="Top 9"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top9.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top10.png"
+                            alt="Top 10"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top10.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top11.png"
+                            alt="Top 11"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top11.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top12.png"
+                            alt="Top 12"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top12.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top13.png"
+                            alt="Top 13"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top13.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/top14.png"
+                            alt="Top 14"
+                            class="clothing-option"
+                            data-category="top"
+                            data-image="images/top14.png"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     BOTTOMS
+                ========================== -->
+
+                <div class="category-screen bottoms-screen">
+
+                    <div class="category-actions">
+
+                        <label class="back-menu" for="menu">← CATEGORIES</label>
+
+                        <button class="clothing-reset" type="button" data-category="bottom">NONE</button>
+
+                    </div>
+
+                    <h2>BOTTOMS</h2>
+
+                    <div class="piece-grid">
+
+                        <img
+                            src="images/thumbnails/bottom1.png"
+                            alt="Bottom 1"
+                            class="clothing-option"
+                            data-category="bottom"
+                            data-image="images/bottom1.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/bottom2.png"
+                            alt="Bottom 2"
+                            class="clothing-option"
+                            data-category="bottom"
+                            data-image="images/bottom2.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/bottom3.png"
+                            alt="Bottom 3"
+                            class="clothing-option"
+                            data-category="bottom"
+                            data-image="images/bottom3.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/bottom4.png"
+                            alt="Bottom 4"
+                            class="clothing-option"
+                            data-category="bottom"
+                            data-image="images/bottom4.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/bottom5.png"
+                            alt="Bottom 5"
+                            class="clothing-option"
+                            data-category="bottom"
+                            data-image="images/bottom5.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/bottom6.png"
+                            alt="Bottom 6"
+                            class="clothing-option"
+                            data-category="bottom"
+                            data-image="images/bottom6.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/bottom7.png"
+                            alt="Bottom 7"
+                            class="clothing-option"
+                            data-category="bottom"
+                            data-image="images/bottom7.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/bottom8.png"
+                            alt="Bottom 8"
+                            class="clothing-option"
+                            data-category="bottom"
+                            data-image="images/bottom8.png"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     ACCESSORIES
+                ========================== -->
+
+                <div class="category-screen accessories-screen">
+
+                    <div class="category-actions">
+
+                        <label class="back-menu" for="menu">← CATEGORIES</label>
+
+                        <button class="clothing-reset" type="button" data-category="accessory">NONE</button>
+
+                    </div>
+
+                    <h2>ACCESSORIES</h2>
+
+                    <div class="piece-grid">
+
+                        <img
+                            src="images/thumbnails/accessory1.png"
+                            alt="Accessory 1"
+                            class="clothing-option"
+                            data-category="accessory"
+                            data-image="images/accessory1.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/accessory2.png"
+                            alt="Accessory 2"
+                            class="clothing-option"
+                            data-category="accessory"
+                            data-image="images/accessory2.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/accessory3.png"
+                            alt="Accessory 3"
+                            class="clothing-option"
+                            data-category="accessory"
+                            data-image="images/accessory3.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/accessory4.png"
+                            alt="Accessory 4"
+                            class="clothing-option"
+                            data-category="accessory"
+                            data-image="images/accessory4.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/accessory5.png"
+                            alt="Accessory 5"
+                            class="clothing-option"
+                            data-category="accessory"
+                            data-image="images/accessory5.png"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     SHOES
+                ========================== -->
+
+                <div class="category-screen shoes-screen">
+
+                    <div class="category-actions">
+
+                        <label class="back-menu" for="menu">← CATEGORIES</label>
+
+                        <button class="clothing-reset" type="button" data-category="shoes">NONE</button>
+
+                    </div>
+
+                    <h2>SHOES</h2>
+
+                    <div class="piece-grid">
+
+                        <img
+                            src="images/thumbnails/shoes1.png"
+                            alt="Shoes 1"
+                            class="clothing-option"
+                            data-category="shoes"
+                            data-image="images/shoes1.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/shoes2.png"
+                            alt="Shoes 2"
+                            class="clothing-option"
+                            data-category="shoes"
+                            data-image="images/shoes2.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/shoes3.png"
+                            alt="Shoes 3"
+                            class="clothing-option"
+                            data-category="shoes"
+                            data-image="images/shoes3.png"
+                        >
+
+                        <img
+                            src="images/thumbnails/shoes4.png"
+                            alt="Shoes 4"
+                            class="clothing-option"
+                            data-category="shoes"
+                            data-image="images/shoes4.png"
+                        >
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

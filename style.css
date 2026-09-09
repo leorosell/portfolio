@@ -664,24 +664,32 @@ Keep the portfolio text above the face.
 
 .info-body {
     margin: 0;
+
     background: #000000;
     color: #ffffff;
+
     font-family: Arial, Helvetica, sans-serif;
 }
 
 
-/* PAGE */
+/* =========================
+   PAGE
+========================= */
 
 .info-page {
     min-height: 100vh;
+
     padding: 14px;
 }
 
 
-/* TOP NAV */
+/* =========================
+   TOP NAV
+========================= */
 
 .info-nav {
     width: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -692,6 +700,7 @@ Keep the portfolio text above the face.
 
 .info-nav a {
     color: #ffffff;
+
     text-decoration: none;
 }
 
@@ -704,7 +713,9 @@ Keep the portfolio text above the face.
 }
 
 
-/* ID CARD */
+/* =========================
+   ID CARD
+========================= */
 
 .id-card {
     display: flex;
@@ -715,26 +726,35 @@ Keep the portfolio text above the face.
 }
 
 .id-card img {
+    display: block;
+
     width: 320px;
     height: auto;
-    display: block;
 }
 
 
-/* ABOUT + CONTACT */
+/* =========================
+   ABOUT + CONTACT
+========================= */
 
 .info-details {
     display: grid;
+
     grid-template-columns: 320px 320px;
+
     gap: 80px;
 
     width: 100%;
+
     margin: 0;
+
     padding-bottom: 50px;
 }
 
 
-/* HEADINGS */
+/* =========================
+   HEADINGS
+========================= */
 
 .info-section h2 {
     margin: 0 0 14px 0;
@@ -747,7 +767,9 @@ Keep the portfolio text above the face.
 }
 
 
-/* TEXT */
+/* =========================
+   TEXT
+========================= */
 
 .info-section p {
     margin: 0;
@@ -758,7 +780,28 @@ Keep the portfolio text above the face.
 }
 
 
-/* MOBILE */
+/* =========================
+   CONTACT LINKS
+========================= */
+
+.info-section a {
+    color: #ffffff;
+
+    text-decoration: none;
+}
+
+.info-section a:visited {
+    color: #ffffff;
+}
+
+.info-section a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 800px) {
 
@@ -778,372 +821,207 @@ Keep the portfolio text above the face.
 
     .info-details {
         grid-template-columns: 1fr;
+
         gap: 35px;
     }
 
+
+
 }/* =========================
-   GRAPHIC PAGE
+   GRAPHIC
 ========================= */
 
 .graphic-body {
     margin: 0;
-    background: #000;
-    color: #fff;
+
+    background: #000000;
+    color: #ffffff;
+
     font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
 }
+
 
 .graphic-page {
-    height: 100vh;
-    padding: 14px;
+    width: 100%;
 
-    display: flex;
-    flex-direction: column;
+    padding: 14px 22px 80px 22px;
 }
 
 
-/* TOP NAV */
+/* =========================
+   NAVIGATION
+========================= */
 
 .graphic-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+    margin-bottom: 60px;
+
     font-size: 16px;
     font-weight: 700;
-
-    flex-shrink: 0;
 }
 
+
 .graphic-nav a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
 }
 
-.graphic-nav a:visited {
-    color: #fff;
-}
 
 .graphic-nav a:hover {
     text-decoration: underline;
 }
 
 
-/* PREVIEW AREA */
+/* =========================
+   PROJECT GRID
+========================= */
 
-.graphic-preview-wrap {
-    flex: 1;
+.graphic-projects {
+    display: grid;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    min-height: 0;
+    column-gap: 22px;
+    row-gap: 70px;
 }
 
-.graphic-preview {
+
+/* =========================
+   PROJECT
+========================= */
+
+.graphic-project {
+    display: block;
+
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
+    min-width: 0;
 
-    scrollbar-width: none;
-
-    opacity: 0;
-    transform: translateY(10px);
-
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-}
-
-.graphic-preview::-webkit-scrollbar {
-    display: none;
-}
-
-.graphic-preview.active {
-    opacity: 1;
-    transform: translateY(0);
+    color: #ffffff;
+    text-decoration: none;
 }
 
 
-/* IMAGE ROW */
+/* =========================
+   PROJECT INFO
+========================= */
 
-.graphic-images {
+.graphic-project-info {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
-    gap: 18px;
+    gap: 20px;
 
-    width: max-content;
+    margin-bottom: 10px;
 
-    padding: 20px 0;
-}
-
-.graphic-images img {
-    height: 48vh;
-    width: auto;
-
-    max-width: 70vw;
-
-    object-fit: contain;
-
-    display: block;
-
-    flex-shrink: 0;
-}
-
-
-/* CUSTOM SCROLLBAR */
-
-.graphic-scrollbar {
-    margin-top: 10px;
-    padding: 0 2px;
-}
-
-.graphic-scroll-track {
-    position: relative;
-
-    width: 100%;
-    height: 2px;
-
-    background: #333;
-}
-
-.graphic-scroll-thumb {
-    position: absolute;
-
-    top: -3px;
-    left: 0;
-
-    height: 8px;
-    width: 80px;
-
-    background: #fff;
-
-    cursor: grab;
-
-    transition: width 0.2s ease;
-}
-
-.graphic-scroll-thumb:active {
-    cursor: grabbing;
-}
-
-
-/* PROJECT MENU */
-
-.project-menu {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 24px;
-
-    padding-top: 18px;
-
-    flex-shrink: 0;
-}
-
-.project-item {
-    background: none;
-    border: none;
-
-    color: #fff;
-
-    text-align: left;
-
-    padding: 0;
-
-    cursor: pointer;
-
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.project-item span {
-    display: block;
-}
-
-.project-item span:first-child {
-    font-size: 12px;
-    margin-bottom: 5px;
-}
-
-.project-item span:last-child {
     font-size: 14px;
     font-weight: 700;
 }
 
-.project-item:hover span:last-child,
-.project-item.active span:last-child {
+
+.graphic-project-info span:last-child {
+    white-space: nowrap;
+}
+
+
+.graphic-project:hover
+.graphic-project-info span:last-child {
     text-decoration: underline;
 }
 
 
-/* MOBILE */
-
-@media (max-width: 800px) {
-
-    .graphic-body {
-        overflow: auto;
-    }
-
-    .graphic-page {
-        min-height: 100vh;
-        height: auto;
-    }
-
-    .graphic-preview-wrap {
-        min-height: 65vh;
-    }
-
-    .graphic-images img {
-        height: 45vh;
-        max-width: 85vw;
-    }
-
-    .project-menu {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-
-}/* =========================
-   PROJECT THUMBNAILS
+/* =========================
+   MEDIA FRAME
 ========================= */
 
-.project-menu {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+.graphic-media {
+    position: relative;
 
     width: 100%;
 
-    /* smaller gap between scrollbar and thumbnails */
-    padding-top: 25px;
+    aspect-ratio: 16 / 10;
 
-    flex-shrink: 0;
+    overflow: hidden;
+
+    background: #000000;
 }
 
 
-/* PROJECT */
+/* =========================
+   VIDEO
+========================= */
 
-.project-item {
-    background: none;
-    border: none;
+.graphic-media video {
+    position: absolute;
 
-    color: #ffffff;
-
-    padding: 0;
-    margin: 0;
-
-    text-align: left;
-    cursor: pointer;
-
-    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    left: 0;
 
     width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-
-/* THUMBNAIL */
-
-.project-thumbnail {
-    width: 100%;
-
-    /* makes image area reach upward toward scrollbar */
-    height: 230px;
-
-    object-fit: contain;
-    object-position: left bottom;
+    height: 100%;
 
     display: block;
 
-    margin: 0 0 10px 0;
+    object-fit: cover;
+    object-position: center;
+
+    transition: opacity 0.2s ease;
 }
 
 
-/* EMPTY PROJECTS */
-
-.project-placeholder {
-    width: 100%;
-    height: 230px;
-
-    margin: 0 0 10px 0;
+.graphic-project:hover
+.graphic-media video {
+    opacity: 0.82;
 }
 
 
-/* PROJECT TEXT */
+/* =========================
+   MOBILE
+========================= */
 
-.project-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
+@media (max-width: 700px) {
 
-
-/* PROJECT NUMBER */
-
-.project-info span:first-child {
-    font-size: 11px;
-    line-height: 1;
-    font-weight: 400;
-
-    margin-bottom: 6px;
-}
-
-
-/* PROJECT NAME */
-
-.project-info span:last-child {
-    font-size: 13px;
-    line-height: 1;
-    font-weight: 700;
-}
-
-
-/* HOVER */
-
-.project-item:hover .project-info span:last-child {
-    text-decoration: underline;
-}
-
-
-/* ACTIVE */
-
-.project-item.active .project-info span:last-child {
-    text-decoration: underline;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 800px) {
-
-    .project-menu {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-
-        padding-top: 20px;
+    .graphic-page {
+        padding: 14px 14px 50px 14px;
     }
 
-    .project-thumbnail,
-    .project-placeholder {
-        height: 160px;
+
+    .graphic-nav {
+        margin-bottom: 45px;
     }
 
-}.graphic-images video {
-    height: 48vh;
-    width: auto;
 
-    max-width: 70vw;
+    .graphic-projects {
+        grid-template-columns: 1fr;
 
-    object-fit: contain;
+        row-gap: 65px;
+    }
 
-    display: block;
 
-    flex-shrink: 0;
+    .graphic-media {
+        aspect-ratio: auto;
+        overflow: visible;
+    }
+
+
+    .graphic-media video {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
+    }
+
+
+
+
 }/* =========================
    COVERS PAGE
 ========================= */
@@ -1498,46 +1376,190 @@ label,
     cursor: url("images/cursor.png") 16 16, auto;
 }
 /* =========================
-   GRAPHIC — UNDER DEVELOPMENT
+   PROJECT PAGE
 ========================= */
 
-.graphic-development-body {
+.project-body {
     margin: 0;
-    min-height: 100vh;
+
     background: #000000;
     color: #ffffff;
+
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.graphic-development-nav {
-    position: fixed;
-    top: 14px;
-    left: 22px;
-    right: 22px;
+.project-page {
+    width: 100%;
 
+    padding: 14px 22px 80px 22px;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.project-nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     font-size: 16px;
     font-weight: 700;
 }
 
-.graphic-development-nav a {
+.project-nav a {
     color: #ffffff;
     text-decoration: none;
 }
 
-.graphic-development-nav a:hover {
+.project-nav a:hover {
     text-decoration: underline;
 }
 
-.graphic-development-message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
 
-    transform: translate(-50%, -50%);
+/* =========================
+   INTRO
+========================= */
+
+.project-intro {
+    margin-top: 100px;
+    margin-bottom: 80px;
+}
+
+.project-intro h1 {
+    margin: 0 0 35px 0;
+
+    font-size: clamp(40px, 7vw, 110px);
+    line-height: 0.9;
+
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+.project-intro-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+}
+
+.project-intro-grid p {
+    margin: 0;
+
+    max-width: 600px;
 
     font-size: 14px;
+    line-height: 1.4;
+}
+
+
+/* =========================
+   MEDIA GRID
+========================= */
+
+.project-media-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+
+    width: 100%;
+}
+
+
+/* =========================
+   MEDIA
+========================= */
+
+.project-media {
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+}
+
+.project-media img,
+.project-media video {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================
+   NEXT PROJECT
+========================= */
+
+.project-next {
+    display: flex;
+    justify-content: flex-end;
+
+    padding-top: 100px;
+}
+
+.project-next a {
+    color: #ffffff;
+
+    font-size: 16px;
     font-weight: 700;
+
+    text-decoration: none;
+}
+
+.project-next a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .project-page {
+        padding: 14px 14px 50px 14px;
+    }
+
+    .project-intro {
+        margin-top: 70px;
+        margin-bottom: 50px;
+    }
+
+    .project-intro h1 {
+        margin-bottom: 25px;
+
+        font-size: 42px;
+    }
+
+    .project-intro-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .project-media-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .project-media {
+        width: 100%;
+    }
+
+    .project-media img,
+    .project-media video {
+        width: 100%;
+        height: auto;
+    }
+
+    .project-next {
+        padding-top: 70px;
+    }
+
 }

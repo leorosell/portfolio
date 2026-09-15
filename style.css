@@ -1563,3 +1563,47 @@ label,
     }
 
 }
+
+/* =========================
+   PHOTOSHOP MARQUEE SELECTION
+========================= */
+
+@media (min-width: 801px) {
+
+    body.selection-enabled {
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .selection-box {
+        position: fixed;
+        pointer-events: none;
+        z-index: 999999;
+        display: none;
+        background: transparent;
+    }
+
+    .selection-box::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background:
+            linear-gradient(90deg, #fff 50%, #000 50%) 0 0 / 8px 1px repeat-x,
+            linear-gradient(90deg, #fff 50%, #000 50%) 0 100% / 8px 1px repeat-x,
+            linear-gradient(0deg, #fff 50%, #000 50%) 0 0 / 1px 8px repeat-y,
+            linear-gradient(0deg, #fff 50%, #000 50%) 100% 0 / 1px 8px repeat-y;
+
+        animation: photoshop-ants 0.35s linear infinite;
+    }
+
+    @keyframes photoshop-ants {
+        to {
+            background-position:
+                8px 0,
+                -8px 100%,
+                0 -8px,
+                100% 8px;
+        }
+    }
+}

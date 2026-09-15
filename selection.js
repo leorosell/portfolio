@@ -1,54 +1,54 @@
 /* =========================
-   PHOTOSHOP STYLE SELECTION
+   PHOTOSHOP MARQUEE SELECTION
 ========================= */
 
-if (window.matchMedia("(min-width: 801px)").matches) {
+if (window.matchMedia("(min-width: 801px) and (pointer: fine)").matches) {
 
     document.body.classList.add("selection-enabled");
 
-
-    /* CREATE SELECTION BOX */
-
-    const selectionBox =
-        document.createElement("div");
-
-    selectionBox.className =
-        "selection-box";
-
+    const selectionBox = document.createElement("div");
+    selectionBox.className = "selection-box";
     document.body.appendChild(selectionBox);
 
-
     let isSelecting = false;
-
     let hasSelection = false;
 
     let startX = 0;
     let startY = 0;
 
 
-    /* =========================
-       START / REMOVE SELECTION
-    ========================= */
+    /* Prevent browser's native image/link dragging */
+    document.addEventListener("dragstart", function (event) {
+        event.preventDefault();
+    });
+
+
+    /* START SELECTION */
 
     document.addEventListener("mousedown", function (event) {
 
-        /* Keep links and buttons clickable */
+        /* Only left mouse button */
+        if (event.button !== 0) return;
 
+
+        /* Keep interactive elements clickable */
         if (
             event.target.closest(
-                "a, button, label, input"
+                "a, button, label, input, textarea, select"
             )
         ) {
             return;
         }
 
 
-        /* REMOVE EXISTING SELECTION */
+        event.preventDefault();
+
+
+        /* If selection exists, remove it */
 
         if (hasSelection) {
 
-            selectionBox.style.display =
-                "none";
+            selectionBox.style.display = "none";
 
             hasSelection = false;
 
@@ -56,50 +56,32 @@ if (window.matchMedia("(min-width: 801px)").matches) {
         }
 
 
-        /* START NEW SELECTION */
+        /* Start new selection */
 
         isSelecting = true;
 
         startX = event.clientX;
         startY = event.clientY;
 
-        selectionBox.style.left =
-            startX + "px";
-
-        selectionBox.style.top =
-            startY + "px";
-
-        selectionBox.style.width =
-            "0px";
-
-        selectionBox.style.height =
-            "0px";
-
-        selectionBox.style.display =
-            "block";
-
-        event.preventDefault();
+        selectionBox.style.left = startX + "px";
+        selectionBox.style.top = startY + "px";
+        selectionBox.style.width = "0px";
+        selectionBox.style.height = "0px";
+        selectionBox.style.display = "block";
 
     });
 
 
-    /* =========================
-       DRAG SELECTION
-    ========================= */
+    /* MOVE SELECTION */
 
     document.addEventListener("mousemove", function (event) {
 
-        if (!isSelecting) {
-            return;
-        }
+        if (!isSelecting) return;
 
+        event.preventDefault();
 
-        const currentX =
-            event.clientX;
-
-        const currentY =
-            event.clientY;
-
+        const currentX = event.clientX;
+        const currentY = event.clientY;
 
         const left =
             Math.min(startX, currentX);
@@ -113,33 +95,41 @@ if (window.matchMedia("(min-width: 801px)").matches) {
         const height =
             Math.abs(currentY - startY);
 
-
-        selectionBox.style.left =
-            left + "px";
-
-        selectionBox.style.top =
-            top + "px";
-
-        selectionBox.style.width =
-            width + "px";
-
-        selectionBox.style.height =
-            height + "px";
+        selectionBox.style.left = left + "px";
+        selectionBox.style.top = top + "px";
+        selectionBox.style.width = width + "px";
+        selectionBox.style.height = height + "px";
 
     });
 
 
-    /* =========================
-       FINISH SELECTION
-    ========================= */
+    /* FINISH SELECTION */
 
-    document.addEventListener("mouseup", function () {
+    document.addEventListener("mouseup", function (event) {
 
-        if (!isSelecting) {
-            return;
-        }
+        if (!isSelecting) return;
+
+        event.preventDefault();
 
         isSelecting = false;
+
+        const width =
+            parseFloat(selectionBox.style.width);
+
+        const height =
+            parseFloat(selectionBox.style.height);
+
+
+        /* Tiny click = don't create a selection */
+
+        if (width < 3 && height < 3) {
+
+            selectionBox.style.display = "none";
+
+            hasSelection = false;
+
+            return;
+        }
 
         hasSelection = true;
 

@@ -1607,3 +1607,15 @@ label,
         }
     }
 }
+@media (min-width: 801px) and (pointer: fine) {
+
+    body.selection-enabled {
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    body.selection-enabled img {
+        -webkit-user-drag: none;
+        user-select: none;
+    }
+}
